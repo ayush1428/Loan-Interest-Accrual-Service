@@ -98,7 +98,7 @@ Sample Response:
 
 6. Postman Collection
 
-    6.1 File Location - /postman/Loan Interest Accrual Service.postman_collection.json
+    6.1 File Location - project-folder/postman/Loan Interest Accrual Service.postman_collection.json
 
     6.2 How to Use
 
