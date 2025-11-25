@@ -1,5 +1,6 @@
 package com.delcapital.loanservice.scheduler;
 
+import com.delcapital.loanservice.dto.InterestResponseDTO;
 import com.delcapital.loanservice.service.InterestCalculationService;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
@@ -13,10 +14,10 @@ public class DailyInterestScheduler {
         this.interestCalculationService = interestCalculationService;
     }
 
-    // Run every day at 00:05 AM
+    // Run every day at 8:11 PM 
     @Scheduled(cron = "0 11 20 * * ?")
     public void runDailyInterestJob() {
-        String message = interestCalculationService.calculateDailyInterest();
+        InterestResponseDTO message = interestCalculationService.calculateDailyInterest();
         System.out.println(message);
     }
 }

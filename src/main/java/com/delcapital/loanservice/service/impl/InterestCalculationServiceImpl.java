@@ -1,5 +1,6 @@
 package com.delcapital.loanservice.service.impl;
 
+import com.delcapital.loanservice.dto.InterestResponseDTO;
 import com.delcapital.loanservice.entity.InterestHistory;
 import com.delcapital.loanservice.entity.Loan;
 import com.delcapital.loanservice.repository.InterestHistoryRepository;
@@ -26,8 +27,8 @@ public class InterestCalculationServiceImpl implements InterestCalculationServic
 
 
     @Override
-    public String calculateDailyInterest() {
-        Long skipped = 0L , processed = 0L;
+    public InterestResponseDTO calculateDailyInterest() {
+        int skippedLoans = 0 , processedLoans = 0;
         LocalDate yesterday = LocalDate.now().minusDays(1);
 
         // Fetch all loans
@@ -41,7 +42,7 @@ public class InterestCalculationServiceImpl implements InterestCalculationServic
 
             if (exists) {
                 // Skip — already calculated
-                skipped++;
+                skippedLoans++;
                 continue;
             }
 
@@ -64,10 +65,11 @@ public class InterestCalculationServiceImpl implements InterestCalculationServic
 
             loanRepository.save(loan);
 
-            processed++;
+            processedLoans++;
 
         }
 
-        return "Interest Calculation Completed. " + "Processed: " + processed + ", Skipped: " + skipped;
+        return new InterestResponseDTO(processedLoans, skippedLoans,"Daily interest calculated successfully");
+
     }
 }
