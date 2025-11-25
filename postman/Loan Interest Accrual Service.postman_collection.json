@@ -1,0 +1,75 @@
+{
+	"info": {
+		"_postman_id": "31322ac8-9798-4ef8-8a77-4b3268a146fb",
+		"name": "Loan Interest Accrual Service",
+		"description": "Postman collection for testing the Loan Interest Accrual Service APIs.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "46251759"
+	},
+	"item": [
+		{
+			"name": "Get Loan by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/loans/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"loans",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Interest History",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/loans/1/interest-history",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"loans",
+						"1",
+						"interest-history"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Manual Interest Trigger",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/interest/run",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"interest",
+						"run"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

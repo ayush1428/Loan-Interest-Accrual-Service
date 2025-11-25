@@ -14,7 +14,7 @@ public class DailyInterestScheduler {
         this.interestCalculationService = interestCalculationService;
     }
 
-    // Run every day at 8:11 PM 
+    // Run every day at 8:11 PM
     @Scheduled(cron = "0 11 20 * * ?")
     public void runDailyInterestJob() {
         InterestResponseDTO message = interestCalculationService.calculateDailyInterest();
